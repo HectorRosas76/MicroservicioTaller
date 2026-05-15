@@ -17,4 +17,15 @@ class Vehiculo_Controller {
         }
         return $vehiculo;
     }
-}
+
+//CRUD INCOMPLETO, SE DEJA ID PARA MODIFICAR AL FUTURO
+
+    function modificarVehiculo($id, $data){
+        $vehiculo = $this->getVehiculo($id);
+      //  $vehiculo->nombre = $data['nombre'];
+      //  $vehiculo->email = $data['email'];
+ //       $vehiculo->telefono = empty($data['telefono']) ? null : $data['telefono'];
+        $vehiculo->save();
+        return $vehiculo;
+    }
+    }

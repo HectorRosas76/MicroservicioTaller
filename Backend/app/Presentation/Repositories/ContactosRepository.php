@@ -1,5 +1,7 @@
 <?php
 
+//creacion de repositorio para contactos, similar al de vehiculos, con funciones list y detail, utilizando el controlador de contactos para obtener los datos
+
 namespace App\Presentation\Repositories;
 
 use App\Controllers\Contacto_Controller;

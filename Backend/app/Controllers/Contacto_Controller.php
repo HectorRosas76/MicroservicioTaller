@@ -17,4 +17,34 @@ class Contacto_Controller {
         }
         return $cliente;
     }
+
+    
+//CRUD INCOMPLETO TALVEZ.
+    //SE DEJA COMENTADO EL GUARDAR Y MODIFICAR PARA FUTURAS IMPLEMENTACIONES, SE DEJA EL ID PARA MODIFICAR AL FUTURO.
+    function guardarcliente($data)
+    {
+        if (empty($data['nombre']) || empty($data['email'])) {
+            throw new Exception("Falta el nombre o el email", 1);
+        }
+        $cliente = new Cliente();
+        $cliente->nombre = $data['nombre'];
+//        $cliente->email = $data['email'];
+ //       $cliente->telefono = empty($data['telefono']) ? null : $data['telefono'];
+ //       $cliente->save();
+      return $cliente;
+    }
+    function modificarCliente($id, $data){
+        $cliente = $this->getCliente($id);
+      //  $cliente->nombre = $data['nombre'];
+      //  $cliente->email = $data['email'];
+ //       $cliente->telefono = empty($data['telefono']) ? null : $data['telefono'];
+        $cliente->save();
+        return $cliente;
+    }
+
+    function borrarCliente($id){
+        $cliente = $this->getCliente($id);
+        $cliente->delete();
+        return TRUE;
+    }
 }
