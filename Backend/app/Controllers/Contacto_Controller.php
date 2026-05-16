@@ -27,21 +27,23 @@ class Contacto_Controller {
     //help
     function guardarcliente($data)
     {
-        if (empty($data['nombre']) || empty($data['correo'])) {
-            throw new Exception("Falta el nombre o el email", 1);
+        if (empty($data['nombre']) ) {
+            throw new Exception("Falta el nombre", 1);
         }
         $cliente = new Cliente();
         $cliente->nombre = $data['nombre'];
-        $cliente->correo = $data['correo'];
+        $cliente->correo = empty($data['correo']) ? null : $data['correo'];
         $cliente->telefono = empty($data['telefono']) ? null : $data['telefono'];
+        $cliente->numero_licencia = empty($data['numero_licencia']) ? null : $data['numero_licencia'];
         $cliente->save();
       return $cliente;
     }
     function modificarCliente($id, $data){
         $cliente = $this->getCliente($id);
         $cliente->nombre = $data['nombre'];
-        $cliente->correo = $data['correo'];
+        $cliente->correo = empty($data['correo']) ? null : $data['correo'];
         $cliente->telefono = empty($data['telefono']) ? null : $data['telefono'];
+        $cliente->numero_licencia = empty($data['numero_licencia']) ? null : $data['numero_licencia'];
         $cliente->save();
         return $cliente;
     }

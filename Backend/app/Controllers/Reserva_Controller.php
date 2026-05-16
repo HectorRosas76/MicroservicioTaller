@@ -32,7 +32,7 @@ class Reserva_Controller
         $reserva = new Reserva();
         $reserva->cliente_id = $data['cliente_id'];
         $reserva->vehiculo_id = $data['vehiculo_id'];
-        // $reserva->telefono = empty($data['telefono']) ? null : $data['telefono'];
+        $reserva->estado_ENUM = empty($data['estado_ENUM']) ? null : $data['estado_ENUM'];
         $reserva->save();
         return $reserva;
     }
@@ -41,7 +41,7 @@ class Reserva_Controller
         $reserva = $this->getReserva($id);
           $reserva->cliente_id = $data['cliente_id'];
           $reserva->vehiculo_id = $data['vehiculo_id'];
-        //       $reserva->telefono = empty($data['telefono']) ? null : $data['telefono'];
+          $reserva->estado_ENUM = empty($data['estado_ENUM']) ? null : $data['estado_ENUM'];
         $reserva->save();
         return $reserva;
     }
