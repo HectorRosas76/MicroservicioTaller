@@ -23,6 +23,7 @@ class Reserva_Controller
 
     // CRUD INCOMPLETO.
     //SE DEJA COMENTADO EL GUARDAR Y MODIFICAR PARA FUTURAS IMPLEMENTACIONES, SE DEJA EL ID PARA MODIFICAR AL FUTURO.
+    // SE NECESITA INTEGRAR LOS NO NULOS
     function guardarReserva($data)
     {
         if (empty($data['cliente_id']) || empty($data['vehiculo_id'])) {

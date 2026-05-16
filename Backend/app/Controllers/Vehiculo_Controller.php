@@ -18,14 +18,35 @@ class Vehiculo_Controller {
         return $vehiculo;
     }
 
-//CRUD INCOMPLETO, SE DEJA ID PARA MODIFICAR AL FUTURO
+//SE DEJA ID PARA MODIFICAR AL FUTURO
+
 
     function modificarVehiculo($id, $data){
         $vehiculo = $this->getVehiculo($id);
-      //  $vehiculo->nombre = $data['nombre'];
-      //  $vehiculo->email = $data['email'];
- //       $vehiculo->telefono = empty($data['telefono']) ? null : $data['telefono'];
+      $vehiculo->marca = $data['marca'];
+      $vehiculo->modelo = $data['modelo'];
+      $vehiculo->anio = $data['anio'];
+    $vehiculo->estado_ENUM = empty($data['estado_ENUM']) ? null : $data['estado_ENUM'];
         $vehiculo->save();
         return $vehiculo;
     }
+function guardarVehiculo($data)
+    {
+        if (empty($data['marca']) || empty($data['modelo'])) {
+            throw new Exception("Falta la marca o el modelo", 1);
+        }
+        $vehiculo = new Vehiculo();
+        $vehiculo->marca = $data['marca'];
+        $vehiculo->modelo = $data['modelo'];
+        $vehiculo->anio = $data['anio'];
+        $vehiculo->estado_ENUM = empty($data['estado_ENUM']) ? null : $data['estado_ENUM'];
+        $vehiculo->save();
+        return $vehiculo;
     }
+    function borrarVehiculo($id)
+    {
+        $vehiculo = $this->getVehiculo($id);
+        $vehiculo->delete();
+        return TRUE;
+    }
+}
