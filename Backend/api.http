@@ -7,9 +7,9 @@ GET http://127.0.0.1:8000/api/vehiculo/1
 ### Registrar un nuevo vehiculo
 POST http://127.0.0.1:8000/api/vehiculos
 Content-Type: application/json
-
 {
     "marca": "Toyota",
     "modelo": "Camry",
-    "anio": 2020
+    "anio": 2020,
+    "estado_ENUM": "Disponible"
 }

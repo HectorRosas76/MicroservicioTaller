@@ -32,8 +32,8 @@ class Vehiculo_Controller {
     }
 function guardarVehiculo($data)
     {
-        if (empty($data['marca']) || empty($data['modelo'])) {
-            throw new Exception("Falta la marca o el modelo", 1);
+        if (empty($data['marca']) || empty($data['modelo']) || empty($data['anio'])) {
+            throw new Exception("Falta la marca, el modelo o el año", 1);
         }
         $vehiculo = new Vehiculo();
         $vehiculo->marca = $data['marca'];
