@@ -85,8 +85,8 @@ class ReservaRepository {
     //help
     function delete(Request $request, Response $response, $args){
         $id = $args['id'];
-     //   $controller = new Reserva_Controller();
-     //   $estadoENUM = $controller->borrarReserva($id);
+        $controller = new Reserva_Controller();
+        $estado = $controller->borrarReserva($id);
         $dataResponse = json_encode(['msg'=>'Reserva borrada']);
         $response->getBody()->write($dataResponse);
         return $response
