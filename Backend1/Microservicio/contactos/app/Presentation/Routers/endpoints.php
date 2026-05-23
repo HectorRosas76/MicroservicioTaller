@@ -20,7 +20,7 @@ return function (App $app) {
         });
 
        
-        $group->group('/clientes', function (RouteCollectorProxy $cli) {
+        $group->group('/contactos', function (RouteCollectorProxy $cli) {
             $cli->get('', [ContactosRepository::class, 'list']);
             $cli->get('/{id}', [ContactosRepository::class, 'detail']);
             $cli->post('', [ContactosRepository::class, 'create']);
